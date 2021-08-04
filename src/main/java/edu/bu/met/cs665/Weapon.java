@@ -10,4 +10,8 @@ public abstract class Weapon {
   public void setStrength(int strength) {
     this.strength = strength;
   }
+
+  public void fireAt(SpaceShip targetShip) {
+    targetShip.takeDamage(this.strength);
+  }
 }
