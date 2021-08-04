@@ -1,15 +1,7 @@
 package edu.bu.met.cs665;
 
 public abstract class Weapon {
-  private int strength;
-
-  public int getStrength() {
-    return strength;
-  }
-
-  protected void setStrength(int strength) {
-    this.strength = strength;
-  }
+  protected int strength;
 
   public void fireAt(SpaceShip targetShip) {
     targetShip.takeDamage(this.strength);
