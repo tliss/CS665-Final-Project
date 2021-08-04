@@ -5,7 +5,13 @@ public class SpaceShip {
   private final Thruster thruster;
   private final Weapon weapon;
 
-  SpaceShip(Hull hull, Thruster thruster, Weapon weapon) {
+  public SpaceShip() {
+    this.hull = null;
+    this.thruster = null;
+    this.weapon = null;
+  }
+
+  public SpaceShip(Hull hull, Thruster thruster, Weapon weapon) {
     this.hull = hull;
     this.thruster = thruster;
     this.weapon = weapon;
