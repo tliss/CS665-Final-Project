@@ -22,4 +22,16 @@ public class SpaceShip {
   public int getHealth() {
     return this.hull.getHealth();
   }
+
+  public void toggleThrusterPower() {
+    this.thruster.toggle();
+  }
+
+  public boolean thrustersOnline()  {
+    return this.thruster.isPowered();
+  }
+
+  public int getSpeed() {
+    return this.thruster.getSpeed();
+  }
 }

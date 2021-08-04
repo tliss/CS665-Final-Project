@@ -25,4 +25,18 @@ public class TestSpaceShip {
     testSpaceShip.fireAt(testEnemySpaceShip);
     Assert.assertEquals(3, testEnemySpaceShip.getHealth());
   }
+
+  @Test
+  public void testShipThrusters() {
+    SpaceShip testSpaceShip = new SpaceShip(new LightHull(), new BasicThruster(), new LaserWeapon());
+    Assert.assertEquals(0, testSpaceShip.getSpeed());
+    Assert.assertFalse(testSpaceShip.thrustersOnline());
+    testSpaceShip.toggleThrusterPower();
+    Assert.assertEquals(10, testSpaceShip.getSpeed());
+    Assert.assertTrue(testSpaceShip.thrustersOnline());
+    testSpaceShip.toggleThrusterPower();
+    Assert.assertEquals(0, testSpaceShip.getSpeed());
+    Assert.assertFalse(testSpaceShip.thrustersOnline());
+
+  }
 }
