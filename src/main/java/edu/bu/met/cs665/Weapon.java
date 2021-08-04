@@ -7,7 +7,7 @@ public abstract class Weapon {
     return strength;
   }
 
-  public void setStrength(int strength) {
+  protected void setStrength(int strength) {
     this.strength = strength;
   }
 

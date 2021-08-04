@@ -1,9 +1,9 @@
 package edu.bu.met.cs665;
 
 public class SpaceShip {
-  private Hull hull;
-  private Thruster thruster;
-  private Weapon weapon;
+  private final Hull hull;
+  private final Thruster thruster;
+  private final Weapon weapon;
 
   SpaceShip(Hull hull, Thruster thruster, Weapon weapon) {
     this.hull = hull;
