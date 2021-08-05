@@ -1,9 +1,9 @@
 package edu.bu.met.cs665;
 
 public class SpaceShip {
-  private final Hull hull;
-  private final Thruster thruster;
-  private final Weapon weapon;
+  private Hull hull;
+  private Thruster thruster;
+  private Weapon weapon;
 
   public SpaceShip() {
     this.hull = null;
@@ -14,6 +14,18 @@ public class SpaceShip {
   public SpaceShip(Hull hull, Thruster thruster, Weapon weapon) {
     this.hull = hull;
     this.thruster = thruster;
+    this.weapon = weapon;
+  }
+
+  public void setHull(Hull hull) {
+    this.hull = hull;
+  }
+
+  public void setThruster(Thruster thruster) {
+    this.thruster = thruster;
+  }
+
+  public void setWeapon(Weapon weapon) {
     this.weapon = weapon;
   }
 

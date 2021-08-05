@@ -1,20 +1,21 @@
 package edu.bu.met.cs665.builder;
 
-import edu.bu.met.cs665.BasicThruster;
-import edu.bu.met.cs665.LaserWeapon;
-import edu.bu.met.cs665.LightHull;
+import edu.bu.met.cs665.SpaceShip;
 
 public class Director {
-  private SpaceShipBuilder builder;
+  private final SpaceShipBuilder spaceShipBuilder;
 
-  public void changeBuilder(SpaceShipBuilder builder) {
-    this.builder = builder;
+  public Director(SpaceShipBuilder spaceShipBuilder) {
+    this.spaceShipBuilder = spaceShipBuilder;
   }
 
-  public void constructLightFighter(SpaceShipBuilder builder) {
-    builder.reset();
-    builder.setThruster(new BasicThruster());
-    builder.setWeapon(new LaserWeapon());
-    builder.setHull(new LightHull());
+  public SpaceShip getSpaceShip() {
+    return this.spaceShipBuilder.getSpaceShip();
+  }
+
+  public void constructSpaceShip() {
+    this.spaceShipBuilder.setHull();
+    this.spaceShipBuilder.setWeapon();
+    this.spaceShipBuilder.setThruster();
   }
 }
