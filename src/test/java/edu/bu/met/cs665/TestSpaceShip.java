@@ -1,5 +1,8 @@
 package edu.bu.met.cs665;
 
+import edu.bu.met.cs665.builder.Director;
+import edu.bu.met.cs665.builder.LightFighterBuilder;
+import edu.bu.met.cs665.builder.SpaceShipBuilder;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
@@ -37,6 +40,14 @@ public class TestSpaceShip {
     testSpaceShip.toggleThrusterPower();
     Assert.assertEquals(0, testSpaceShip.getSpeed());
     Assert.assertFalse(testSpaceShip.thrustersOnline());
+  }
 
+  @Test
+  public void testBuildLightFighter() {
+    Director director = new Director();
+    SpaceShipBuilder builder = new LightFighterBuilder();
+    director.constructLightFighter(builder);
+    SpaceShip lightFighter = builder.getProduct();
+    lightFighter.toggleThrusterPower();
   }
 }
