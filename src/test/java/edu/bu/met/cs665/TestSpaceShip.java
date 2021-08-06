@@ -1,7 +1,9 @@
 package edu.bu.met.cs665;
 
 import edu.bu.met.cs665.builder.Director;
+import edu.bu.met.cs665.builder.HeavyFighterBuilder;
 import edu.bu.met.cs665.builder.LightFighterBuilder;
+import edu.bu.met.cs665.builder.MediumFighterBuilder;
 import edu.bu.met.cs665.builder.SpaceShipBuilder;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -43,11 +45,29 @@ public class TestSpaceShip {
   }
 
   @Test
-  public void testBuildLightFighter() {
+  public void testBuildFighters() {
     SpaceShipBuilder lightFighterBuilder = new LightFighterBuilder();
     Director director = new Director(lightFighterBuilder);
     director.constructSpaceShip();
-    SpaceShip spaceShip = director.getSpaceShip();
-    spaceShip.toggleThrusterPower();
+    SpaceShip lightFighter = director.getSpaceShip();
+    lightFighter.toggleThrusterPower();
+
+    Assert.assertTrue(lightFighter.thrustersOnline());
+
+    SpaceShipBuilder mediumFighterBuilder = new MediumFighterBuilder();
+    director.switchBuilder(mediumFighterBuilder);
+    director.constructSpaceShip();
+    SpaceShip mediumFighter = director.getSpaceShip();
+    mediumFighter.toggleThrusterPower();
+
+    Assert.assertTrue(mediumFighter.thrustersOnline());
+
+    SpaceShipBuilder heavyFighterBuilder = new HeavyFighterBuilder();
+    director.switchBuilder(heavyFighterBuilder);
+    director.constructSpaceShip();
+    SpaceShip heavyFighter = director.getSpaceShip();
+    heavyFighter.toggleThrusterPower();
+
+    Assert.assertTrue(heavyFighter.thrustersOnline());
   }
 }

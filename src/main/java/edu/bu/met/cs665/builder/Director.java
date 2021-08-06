@@ -3,9 +3,13 @@ package edu.bu.met.cs665.builder;
 import edu.bu.met.cs665.SpaceShip;
 
 public class Director {
-  private final SpaceShipBuilder spaceShipBuilder;
+  private SpaceShipBuilder spaceShipBuilder;
 
   public Director(SpaceShipBuilder spaceShipBuilder) {
+    this.spaceShipBuilder = spaceShipBuilder;
+  }
+
+  public void switchBuilder(SpaceShipBuilder spaceShipBuilder) {
     this.spaceShipBuilder = spaceShipBuilder;
   }
 
