@@ -81,4 +81,17 @@ public class TestSpaceShip {
     SpaceShip randomFighter = director.getSpaceShip();
     System.out.println(Arrays.toString(randomFighter.getLoadout()));
   }
+
+  @Test
+  public void testArenaFight() {
+    SpaceShipBuilder randomFighterBuilder = new RandomFighterBuilder();
+    Director director = new Director(randomFighterBuilder);
+    director.constructSpaceShip();
+    SpaceShip fighterA = director.getSpaceShip();
+    director.constructSpaceShip();
+    SpaceShip fighterB = director.getSpaceShip();
+
+    Arena arena = new Arena(fighterA, fighterB);
+    arena.Battle();
+  }
 }

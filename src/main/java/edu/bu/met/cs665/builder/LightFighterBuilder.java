@@ -4,7 +4,12 @@ import edu.bu.met.cs665.*;
 
 public class LightFighterBuilder implements SpaceShipBuilder{
 
-    private final SpaceShip spaceShip;
+    private SpaceShip spaceShip;
+
+    @Override
+    public void reset() {
+        this.spaceShip = new SpaceShip();
+    }
 
     public LightFighterBuilder() {
         this.spaceShip = new SpaceShip();

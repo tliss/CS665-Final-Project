@@ -199,5 +199,18 @@
 		  <version>[2.13.2,)</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.github.igr</groupId>
+			<artifactId>nomen-est-omen</artifactId>
+			<version>v2.1.0</version>
+		</dependency>
 	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 </project>

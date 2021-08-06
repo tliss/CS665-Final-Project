@@ -13,10 +13,16 @@ import edu.bu.met.cs665.SpaceShip;
 import java.util.Random;
 
 public class RandomFighterBuilder implements SpaceShipBuilder {
-  private final SpaceShip spaceShip;
+  private SpaceShip spaceShip;
   private Random random;
 
   public RandomFighterBuilder() {
+    this.spaceShip = new SpaceShip();
+    random = new Random();
+  }
+
+  @Override
+  public void reset() {
     this.spaceShip = new SpaceShip();
     random = new Random();
   }

@@ -7,4 +7,5 @@ public interface SpaceShipBuilder {
   void setHull();
   void setThruster();
   SpaceShip getSpaceShip();
+  void reset();
 }

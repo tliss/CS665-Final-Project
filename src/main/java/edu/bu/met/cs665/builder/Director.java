@@ -18,6 +18,7 @@ public class Director {
   }
 
   public void constructSpaceShip() {
+    this.spaceShipBuilder.reset();
     this.spaceShipBuilder.setHull();
     this.spaceShipBuilder.setWeapon();
     this.spaceShipBuilder.setThruster();

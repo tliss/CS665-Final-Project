@@ -1,14 +1,20 @@
 package edu.bu.met.cs665;
 
+import com.oblac.nomen.Casing;
+import com.oblac.nomen.Nomen;
+import java.util.Random;
+
 public class SpaceShip {
   private Hull hull;
   private Thruster thruster;
   private Weapon weapon;
+  private String name;
 
   public SpaceShip() {
     this.hull = null;
     this.thruster = null;
     this.weapon = null;
+    this.name = generateName();
   }
 
   public SpaceShip(Hull hull, Thruster thruster, Weapon weapon) {
@@ -59,5 +65,23 @@ public class SpaceShip {
         this.weapon.getClass().getSimpleName(),
         this.hull.getClass().getSimpleName()
     };
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  private String generateName() {
+    String name = "";
+    Random rand = new Random();
+    int nextInt = rand.nextInt(2);
+    if (nextInt == 0) {
+      Nomen nomen = new Nomen().withSpace(" ").withSeparator(" ").withCasing(Casing.CAPITALIZE);
+      name = "The " + nomen.adjective().noun().get();
+    } else {
+      Nomen nomen = new Nomen().withSpace(" ").withSeparator("").withCasing(Casing.CAPITALIZE);
+      name = nomen.person().literal("'s ").noun().get();
+    }
+    return name;
   }
 }
