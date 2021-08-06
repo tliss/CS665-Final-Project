@@ -52,4 +52,12 @@ public class SpaceShip {
   public int getSpeed() {
     return this.thruster.getSpeed();
   }
+
+  public String[] getLoadout() {
+    return new String[] {
+        this.thruster.getClass().getSimpleName(),
+        this.weapon.getClass().getSimpleName(),
+        this.hull.getClass().getSimpleName()
+    };
+  }
 }

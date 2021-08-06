@@ -4,7 +4,9 @@ import edu.bu.met.cs665.builder.Director;
 import edu.bu.met.cs665.builder.HeavyFighterBuilder;
 import edu.bu.met.cs665.builder.LightFighterBuilder;
 import edu.bu.met.cs665.builder.MediumFighterBuilder;
+import edu.bu.met.cs665.builder.RandomFighterBuilder;
 import edu.bu.met.cs665.builder.SpaceShipBuilder;
+import java.util.Arrays;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
@@ -69,5 +71,14 @@ public class TestSpaceShip {
     heavyFighter.toggleThrusterPower();
 
     Assert.assertTrue(heavyFighter.thrustersOnline());
+  }
+
+  @Test
+  public void testRandomFighter() {
+    SpaceShipBuilder randomFighterBuilder = new RandomFighterBuilder();
+    Director director = new Director(randomFighterBuilder);
+    director.constructSpaceShip();
+    SpaceShip randomFighter = director.getSpaceShip();
+    System.out.println(Arrays.toString(randomFighter.getLoadout()));
   }
 }
