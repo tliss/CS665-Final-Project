@@ -9,18 +9,22 @@ public class SpaceShip {
   private Thruster thruster;
   private Weapon weapon;
   private String name;
+  private boolean destroyed;
 
   public SpaceShip() {
     this.hull = null;
     this.thruster = null;
     this.weapon = null;
     this.name = generateName();
+    this.destroyed = false;
   }
 
-  public SpaceShip(Hull hull, Thruster thruster, Weapon weapon) {
+  public SpaceShip(Hull hull, Thruster thruster, Weapon weapon, String name) {
     this.hull = hull;
     this.thruster = thruster;
     this.weapon = weapon;
+    this.name = name;
+    this.destroyed = false;
   }
 
   public void setHull(Hull hull) {
@@ -40,7 +44,13 @@ public class SpaceShip {
   }
 
   public void takeDamage(int damage) {
-    this.hull.takeDamage(damage);
+    if (this.hull.takeDamage(damage)) {
+      this.destroyed = true;
+    }
+  }
+
+  public boolean isDestroyed() {
+    return this.destroyed;
   }
 
   public int getHealth() {
@@ -57,6 +67,10 @@ public class SpaceShip {
 
   public int getSpeed() {
     return this.thruster.getSpeed();
+  }
+
+  public int getStrength() {
+    return this.weapon.getStrength();
   }
 
   public String[] getLoadout() {

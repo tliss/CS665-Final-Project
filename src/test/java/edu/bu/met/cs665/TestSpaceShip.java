@@ -26,8 +26,8 @@ public class TestSpaceShip {
   @Test
   public void testShipReceivingDamage() {
     logger.info("Testing one ship firing at another.");
-    SpaceShip testSpaceShip = new SpaceShip(new LightHull(), new BasicThruster(), new LaserWeapon());
-    SpaceShip testEnemySpaceShip = new SpaceShip(new LightHull(), new BasicThruster(), new LaserWeapon());
+    SpaceShip testSpaceShip = new SpaceShip(new LightHull(), new BasicThruster(), new LaserWeapon(), "Taylor's Test Ship");
+    SpaceShip testEnemySpaceShip = new SpaceShip(new LightHull(), new BasicThruster(), new LaserWeapon(), "Taylor's Test Ship");
 
     testSpaceShip.fireAt(testEnemySpaceShip);
     Assert.assertEquals(3, testEnemySpaceShip.getHealth());
@@ -35,7 +35,7 @@ public class TestSpaceShip {
 
   @Test
   public void testShipThrusters() {
-    SpaceShip testSpaceShip = new SpaceShip(new LightHull(), new BasicThruster(), new LaserWeapon());
+    SpaceShip testSpaceShip = new SpaceShip(new LightHull(), new BasicThruster(), new LaserWeapon(), "Taylor's Test Ship");
     Assert.assertEquals(0, testSpaceShip.getSpeed());
     Assert.assertFalse(testSpaceShip.thrustersOnline());
     testSpaceShip.toggleThrusterPower();
@@ -92,6 +92,6 @@ public class TestSpaceShip {
     SpaceShip fighterB = director.getSpaceShip();
 
     Arena arena = new Arena(fighterA, fighterB);
-    arena.Battle();
+    arena.battle();
   }
 }

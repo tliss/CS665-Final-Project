@@ -7,10 +7,12 @@ public abstract class Hull {
     return health;
   }
 
-  public void takeDamage(int damage) {
+  public boolean takeDamage(int damage) {
     health -= damage;
     if (health <= 0) {
       health = 0;
+      return true;
     }
+    return false;
   }
 }

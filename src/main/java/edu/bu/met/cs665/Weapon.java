@@ -6,4 +6,8 @@ public abstract class Weapon {
   public void fireAt(SpaceShip targetShip) {
     targetShip.takeDamage(this.strength);
   }
+
+  public int getStrength() {
+    return strength;
+  }
 }
