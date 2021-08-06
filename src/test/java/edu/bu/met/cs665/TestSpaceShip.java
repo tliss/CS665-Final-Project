@@ -44,8 +44,8 @@ public class TestSpaceShip {
 
   @Test
   public void testBuildLightFighter() {
-    SpaceShipBuilder spaceShipBuilder = new LightFighterBuilder();
-    Director director = new Director(spaceShipBuilder);
+    SpaceShipBuilder lightFighterBuilder = new LightFighterBuilder();
+    Director director = new Director(lightFighterBuilder);
     director.constructSpaceShip();
     SpaceShip spaceShip = director.getSpaceShip();
     spaceShip.toggleThrusterPower();
