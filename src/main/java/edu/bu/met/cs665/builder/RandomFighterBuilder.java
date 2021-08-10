@@ -12,6 +12,9 @@ import edu.bu.met.cs665.MissileWeapon;
 import edu.bu.met.cs665.SpaceShip;
 import java.util.Random;
 
+/**
+ * This builder builds a spaceship using randomly selected components.
+ */
 public class RandomFighterBuilder implements SpaceShipBuilder {
   private SpaceShip spaceShip;
   private Random random;

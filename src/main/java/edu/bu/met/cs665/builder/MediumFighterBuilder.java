@@ -5,6 +5,9 @@ import edu.bu.met.cs665.CannonWeapon;
 import edu.bu.met.cs665.MediumHull;
 import edu.bu.met.cs665.SpaceShip;
 
+/**
+ * This builder builds a spaceship using medium-tier components.
+ */
 public class MediumFighterBuilder implements SpaceShipBuilder{
 
     private SpaceShip spaceShip;

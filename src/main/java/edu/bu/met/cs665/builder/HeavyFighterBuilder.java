@@ -5,6 +5,9 @@ import edu.bu.met.cs665.HeavyHull;
 import edu.bu.met.cs665.MissileWeapon;
 import edu.bu.met.cs665.SpaceShip;
 
+/**
+ * This builder builds a spaceship using high-tier components.
+ */
 public class HeavyFighterBuilder implements SpaceShipBuilder{
 
     private SpaceShip spaceShip;
