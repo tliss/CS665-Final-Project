@@ -109,8 +109,17 @@ public class TestSpaceShip {
     SpaceShip fighterB = director.getSpaceShip();
 
     logger.info("Commencing arena battle...");
-    Arena arena = new Arena(fighterA, fighterB);
+    Arena arena = Arena.getArena();
+    arena.setCombatants(fighterA, fighterB);
     arena.battle();
     Assert.assertTrue(fighterA.getHealth() == 0 || fighterB.getHealth() == 0);
+  }
+
+  @Test
+  public void testSingletonArena() {
+    logger.info("---Testing that arena is a singleton object.---");
+    Arena arena1 = Arena.getArena();
+    Arena arena2 = Arena.getArena();
+    Assert.assertEquals(arena1, arena2);
   }
 }

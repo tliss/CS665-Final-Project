@@ -11,10 +11,18 @@ public class Arena {
 
   private static final Logger logger = Logger.getLogger(Arena.class);
 
+  private static Arena instance = new Arena();
+
   private SpaceShip shipA;
   private SpaceShip shipB;
 
-  public Arena(SpaceShip shipA, SpaceShip shipB) {
+  private Arena() {}
+
+  public static Arena getArena() {
+    return instance;
+  }
+
+  public void setCombatants(SpaceShip shipA, SpaceShip shipB) {
     this.shipA = shipA;
     this.shipB = shipB;
   }
@@ -23,6 +31,11 @@ public class Arena {
    * Has the two ships take shots at eachother until one is destroyed.
    */
   public void battle() {
+    if (shipA == null || shipB == null) {
+      logger.info("You must set the combatants prior to battle.");
+      return;
+    }
+
     logger.info("Fighter 1: " + shipA.getName() + " " + Arrays.toString(shipA.getLoadout()));
     logger.info("Fighter 2: " + shipB.getName() + " " + Arrays.toString(shipB.getLoadout()));
 
