@@ -73,10 +73,10 @@ public class Arena {
    * @return true once one of teh ships has been destroyed.
    */
   private boolean exchangeFire(SpaceShip fastShip, SpaceShip slowShip) {
-    String fastShipWeapon = fixName(fastShip.getLoadout()[1]);
-    String slowShipWeapon = fixName(slowShip.getLoadout()[1]);
-    String fastShipHull = fixName(fastShip.getLoadout()[2]);
-    String slowShipHull = fixName(slowShip.getLoadout()[2]);
+    final String fastShipWeapon = fixName(fastShip.getLoadout()[1]);
+    final String slowShipWeapon = fixName(slowShip.getLoadout()[1]);
+    final String fastShipHull = fixName(fastShip.getLoadout()[2]);
+    final String slowShipHull = fixName(slowShip.getLoadout()[2]);
 
     fastShip.fireAt(slowShip);
     logger.info(fastShip.getName() + "'s " + fastShipWeapon + " damages " + slowShip.getName()
@@ -90,7 +90,8 @@ public class Arena {
     logger.info(slowShip.getName() + "'s " + slowShipWeapon + " damages " + fastShip.getName()
         + "'s " + fastShipHull + " for " + slowShip.getStrength() + " damage!");
     if (fastShip.isDestroyed()) {
-      logger.info(fastShip.getName() + " has been destroyed! " + slowShip.getName() + " is the winner!");
+      logger.info(fastShip.getName() + " has been destroyed! "
+          + slowShip.getName() + " is the winner!");
       return true;
     }
     return false;

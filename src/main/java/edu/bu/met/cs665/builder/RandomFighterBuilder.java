@@ -16,6 +16,7 @@ import java.util.Random;
  * This builder builds a spaceship using randomly selected components.
  */
 public class RandomFighterBuilder implements SpaceShipBuilder {
+
   private SpaceShip spaceShip;
   private Random random;
 
@@ -42,6 +43,7 @@ public class RandomFighterBuilder implements SpaceShipBuilder {
         break;
       case 2:
         spaceShip.setWeapon(new MissileWeapon());
+        break;
       default:
         break;
     }
@@ -59,6 +61,7 @@ public class RandomFighterBuilder implements SpaceShipBuilder {
         break;
       case 2:
         spaceShip.setHull(new HeavyHull());
+        break;
       default:
         break;
     }
@@ -76,6 +79,7 @@ public class RandomFighterBuilder implements SpaceShipBuilder {
         break;
       case 2:
         spaceShip.setThruster(new ExperimentalThruster());
+        break;
       default:
         break;
     }

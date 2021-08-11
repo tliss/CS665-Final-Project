@@ -8,36 +8,36 @@ import edu.bu.met.cs665.SpaceShip;
 /**
  * This builder builds a spaceship using medium-tier components.
  */
-public class MediumFighterBuilder implements SpaceShipBuilder{
+public class MediumFighterBuilder implements SpaceShipBuilder {
 
-    private SpaceShip spaceShip;
+  private SpaceShip spaceShip;
 
-    @Override
-    public void reset() {
-        this.spaceShip = new SpaceShip();
-    }
+  public MediumFighterBuilder() {
+    this.spaceShip = new SpaceShip();
+  }
 
-    public MediumFighterBuilder() {
-        this.spaceShip = new SpaceShip();
-    }
+  @Override
+  public void reset() {
+    this.spaceShip = new SpaceShip();
+  }
 
-    @Override
-    public void setWeapon() {
-        spaceShip.setWeapon(new CannonWeapon());
-    }
+  @Override
+  public void setWeapon() {
+    spaceShip.setWeapon(new CannonWeapon());
+  }
 
-    @Override
-    public void setHull() {
-        spaceShip.setHull(new MediumHull());
-    }
+  @Override
+  public void setHull() {
+    spaceShip.setHull(new MediumHull());
+  }
 
-    @Override
-    public void setThruster() {
-        spaceShip.setThruster(new AdvancedThruster());
-    }
+  @Override
+  public void setThruster() {
+    spaceShip.setThruster(new AdvancedThruster());
+  }
 
-    @Override
-    public SpaceShip getSpaceShip() {
-        return this.spaceShip;
-    }
+  @Override
+  public SpaceShip getSpaceShip() {
+    return this.spaceShip;
+  }
 }

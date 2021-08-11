@@ -6,9 +6,13 @@
     CS665 Software Design and Patterns - Final Project
     Summer 2, 2021
 
-# Project Details
+# Design Goals
+
+
 
 ## General Description
+
+For the final project, I chose to create an implementation of a computer game, where different Spaceships could be created and then fought against oneanother. I wanted to create ships that could be pieced together from different components and additionally wanted to have a means of automating the building of specific ships. To this end, I chose to implement the **Bridge Pattern** and the **Builder Pattern**.
 
 ## UML Diagram
 

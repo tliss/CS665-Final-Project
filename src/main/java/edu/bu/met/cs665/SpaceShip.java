@@ -15,6 +15,9 @@ public class SpaceShip {
   private final String name;
   private boolean destroyed; //when a ship's hull reaches 0 health, this is flipped to true
 
+  /**
+   * Creates a spaceship with no components defined. Auto-generates a random name.
+   */
   public SpaceShip() {
     this.hull = null;
     this.thruster = null;
@@ -23,6 +26,13 @@ public class SpaceShip {
     this.destroyed = false;
   }
 
+  /**
+   * Creates a spaceship with the provided components.
+   * @param hull The hull of the ship
+   * @param thruster The thruster of the ship
+   * @param weapon The weapon of the ship
+   * @param name The name of the ship
+   */
   public SpaceShip(Hull hull, Thruster thruster, Weapon weapon, String name) {
     this.hull = hull;
     this.thruster = thruster;
