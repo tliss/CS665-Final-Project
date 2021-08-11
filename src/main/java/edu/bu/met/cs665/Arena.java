@@ -11,7 +11,7 @@ public class Arena {
 
   private static final Logger logger = Logger.getLogger(Arena.class);
 
-  private static Arena instance = new Arena();
+  private static final Arena SINGLETON = new Arena();
 
   private SpaceShip shipA;
   private SpaceShip shipB;
@@ -19,7 +19,7 @@ public class Arena {
   private Arena() {}
 
   public static Arena getArena() {
-    return instance;
+    return SINGLETON;
   }
 
   public void setCombatants(SpaceShip shipA, SpaceShip shipB) {
