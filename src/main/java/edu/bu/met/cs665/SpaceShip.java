@@ -4,6 +4,9 @@ import com.oblac.nomen.Casing;
 import com.oblac.nomen.Nomen;
 import java.util.Random;
 
+/**
+ * aeaeaaa
+ */
 public class SpaceShip {
   private Hull hull;
   private Thruster thruster;
