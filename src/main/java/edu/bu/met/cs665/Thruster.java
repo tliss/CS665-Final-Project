@@ -29,11 +29,13 @@ public abstract class Thruster {
    */
   public void toggle() {
     if (this.powered) {
-      logger.info("Disengaging thrusters.");
+      logger.info(this.getClass().getSimpleName().replaceAll("\\d+", "")
+          .replaceAll("(.)([A-Z])", "$1 $2") + "s disengaged!");
       this.powered = false;
       this.speed = 0;
     } else {
-      logger.info("Engaging thrusters!");
+      logger.info(this.getClass().getSimpleName().replaceAll("\\d+", "")
+          .replaceAll("(.)([A-Z])", "$1 $2") + "s engaged!");
       this.powered = true;
       this.speed = maxSpeed;
     }
