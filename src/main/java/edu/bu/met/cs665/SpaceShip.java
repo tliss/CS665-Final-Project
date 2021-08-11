@@ -5,14 +5,15 @@ import com.oblac.nomen.Nomen;
 import java.util.Random;
 
 /**
- * aeaeaaa
+ * This class defines the components of a spaceship and what a spaceship can do. Builders build
+ * a spaceship by creating a new object and assigning it a hull, thrusters, and a weapon.
  */
 public class SpaceShip {
   private Hull hull;
   private Thruster thruster;
   private Weapon weapon;
-  private String name;
-  private boolean destroyed;
+  private final String name;
+  private boolean destroyed; //when a ship's hull reaches 0 health, this is flipped to true
 
   public SpaceShip() {
     this.hull = null;
@@ -42,10 +43,19 @@ public class SpaceShip {
     this.weapon = weapon;
   }
 
+  /**
+   * Uses this ship's weapon to damage another ship's hull.
+   * @param targetShip the target ship
+   */
   public void fireAt(SpaceShip targetShip) {
     this.weapon.fireAt(targetShip);
   }
 
+  /**
+   * Used to take damage to the ship. If the hull reaches 0, then the destroyed flag is switched
+   * to true.
+   * @param damage the amount of damage to the hull
+   */
   public void takeDamage(int damage) {
     if (this.hull.takeDamage(damage)) {
       this.destroyed = true;
@@ -60,6 +70,9 @@ public class SpaceShip {
     return this.hull.getHealth();
   }
 
+  /**
+   * Used just for fun. Does't affect combat.
+   */
   public void toggleThrusterPower() {
     this.thruster.toggle();
   }
@@ -76,6 +89,10 @@ public class SpaceShip {
     return this.weapon.getStrength();
   }
 
+  /**
+   * Used to print what the ship is equipped with.
+   * @return A string array with the spaceship's weapon, thruster, and hull.
+   */
   public String[] getLoadout() {
     return new String[] {
         this.thruster.getClass().getSimpleName(),
@@ -88,6 +105,10 @@ public class SpaceShip {
     return this.name;
   }
 
+  /**
+   * Randomly generates a name for the spaceship.
+   * @return a randomly generated string used for the ship's name
+   */
   private String generateName() {
     String name = "";
     Random rand = new Random();
