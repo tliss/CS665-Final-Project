@@ -22,9 +22,8 @@ public class Arena {
    * Has the two ships take shots at eachother until one is destroyed.
    */
   public void battle() {
-    System.out.println(shipA.getName() + " " + Arrays.toString(shipA.getLoadout()));
-    System.out.println("vs");
-    System.out.println(shipB.getName() + " " + Arrays.toString(shipB.getLoadout()));
+    logger.info("Fighter 1: " + shipA.getName() + " " + Arrays.toString(shipA.getLoadout()));
+    logger.info("Fighter 2: " + shipB.getName() + " " + Arrays.toString(shipB.getLoadout()));
 
     boolean result = false;
     while (!result) {
@@ -39,6 +38,7 @@ public class Arena {
    */
   private boolean exchangeFire() {
     if (shipA.getSpeed() > shipB.getSpeed()) {
+      logger.info(shipA.getName() + " has the speed advantage!");
       shipA.fireAt(shipB);
       logger.info(shipA.getName() + "'s " + shipA.getLoadout()[1] + " damages " + shipB.getName()
         + "'s " + shipB.getLoadout()[2] + " for " + shipA.getStrength() + " damage!");
@@ -54,6 +54,7 @@ public class Arena {
         return true;
       }
     } else {
+      logger.info(shipB.getName() + " has the speed advantage!");
       shipB.fireAt(shipA);
       logger.info(shipB.getName() + "'s " + shipB.getLoadout()[1] + " damages " + shipA.getName()
           + "'s " + shipA.getLoadout()[2] + " for " + shipB.getStrength() + " damage!");
