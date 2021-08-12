@@ -30,9 +30,21 @@ I started out by first determining what components a `SpaceShip` object should b
 
 The `SpaceShip` object represents the *abstraction* part of the bridge pattern, while the three abstract classes represent the `implementation`. The different tiers of components that inherit from those abstract classes represent the `concrete implementations` in the pattern.
 
-With this setup, I could now build a ship by creating new `Thruster`, `Weapon`, and `Hull` objects into the SpaceShip constructor. However, I still felt this method to be a tad clunky, and wanted an easier way to build pre-made ships instead of having to type out so many parameters. If I added more features to the `SpaceShip` class, the parameters required to instantiate a SpaceShip object could grow even longer and become unwieldy. For this reason, I decided to also implement the **Builder Pattern**
+I wantedo to make each concrete implementation unique, so for the `Thrusters` I gave them a `speed` field. `Weapons` got a `strength` field and `Hulls` recieved a health field. My idea is that when two ships fight, whoever has the faster thrusters will attack first and deal damage to an opponents hull equal to their weapon's strength. When a ship's hull health reaches zero, the ship is considered "destroyed".
+
+With this setup, I could now build a ship by creating new `Thruster`, `Weapon`, and `Hull` objects into the SpaceShip constructor. However, I still felt this method to be a tad clunky, and wanted an easier way to build pre-made ships instead of having to type out so many parameters. If I added more features to the `SpaceShip` class, the parameters required to instantiate a SpaceShip object could grow even longer and become unwieldy. For this reason, I decided to also implement the **Builder Pattern**.
 
 # Builder Pattern
+
+Creating the builder pattern first required me to create a *builder* interface which all of my *concrete builders* would implement. I called this interface `SpaceShipBuilder`. It requires that all classes which implement it, must implement methods for setting the `Thruster`, `Weapon`, and `Hull` objects. Additionally, they must all have a method for retrieving the ship after it has been built.
+
+Using this interface, I created three main "Fighter" builders - one for each component tier. Additionally, I created a `RandomFighterBuilder` for fun. This builder would do two unique things: first it would build a new ship with a random assortment of components and second it would generate a random name for the ship using the **Nomen est Omen** library mentioned in the "Special Notes" section above.
+
+Lastly, I needed to create a `Director` class which could take a builder and order them to build a ship. Once that was done, I could finally create SpaceShips in a more refined manner than I had been able to previously.
+
+# Singleton Pattern
+
+
 
 # Project Template
 
