@@ -14,12 +14,25 @@
 
 For the final project, I chose to create an implementation of a computer game, where different Spaceships could be created and then fought against oneanother. I wanted to create ships that could be pieced together from different components and additionally wanted to have a means of automating the building of specific ships. To this end, I chose to implement the **Bridge Pattern** and the **Builder Pattern**.
 
+## Special Notes
+
+I wanted to generate a unique name for every `SpaceShip` object created. In order to do this, I used an external library called **Nomen est Omen** (https://github.com/igr/nomen-est-omen). In order to load it into my project, I had to use a special tool called **JitPack** (https://jitpack.io/). You can find both of these tools added to the end of my `pom.xml` file.
+
+# Implementation Description
+
 ## UML Diagram
 
 ![UML Overview](final_project.png "UML Overview")
 
-## Implementation Description
+# Bridge Pattern
 
+I started out by first determining what components a `SpaceShip` object should be composed of. I decided on three: a `thruster` component, a `weapon` component, and a `hull` component. Additionally, I wanted there to be different "tiers" for each component representing the components relative quality: a "low-tier", a "medium-tier", and a "high-tier". These 9 components could subsequently be combined into 27 different ships. In order to prevent the need to create 27 different classes for every possible combination, I chose instead to use the **Bridge Pattern**.
+
+The `SpaceShip` object represents the *abstraction* part of the bridge pattern, while the three abstract classes represent the `implementation`. The different tiers of components that inherit from those abstract classes represent the `concrete implementations` in the pattern.
+
+With this setup, I could now build a ship by creating new `Thruster`, `Weapon`, and `Hull` objects into the SpaceShip constructor. However, I still felt this method to be a tad clunky, and wanted an easier way to build pre-made ships instead of having to type out so many parameters. If I added more features to the `SpaceShip` class, the parameters required to instantiate a SpaceShip object could grow even longer and become unwieldy. For this reason, I decided to also implement the **Builder Pattern**
+
+# Builder Pattern
 
 # Project Template
 
