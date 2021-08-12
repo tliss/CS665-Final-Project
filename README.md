@@ -44,7 +44,17 @@ Lastly, I needed to create a `Director` class which could take a builder and ord
 
 # Singleton Pattern
 
+Since the ship building aspect of my application was complete, I wanted to create an area for two ships to do battle. I created a new `Arena` class, but I decided that I only ever wanted one arena object to exist at a time. In addition to the methods for making the two ships battle, I also included a `getArena()` method that returned an `Arena` object. This object is set the first time an Arena object is instantiated and therefore prevents any future Arenas from being created.
 
+# Final Thoughts
+
+One of the nice things about my implementation is that it allows for a lot of flexibility. For example, new components can be added by extending the abstract classes that already exist. Alternatively, you could just create an entierly new abstract class and inherit from it, while adding it as a field to the `SpaceShip` class. Creating new kinds of preset fighters is also easy to accomplish by just implementing the `SpaceShipBuilder` interface into a new builder and defining what the ship should look like.
+
+I feel that my design is incredibly streamlined and easy to follow. If a developer wanted to know where to look for modifying the components of a `SpaceShip` object, it is obviously in the "Bridge Pattern" section. If they want to instead work on how ships are actually created, they need only look at the "Builder Pattern" section. If they want to actually change how the fighting works, they can just look at the Singleton arena class.
+
+Through judicious use of inheritance and object-oriented principles, a lot of duplicate code has been avoided. For example, when I initially implemented the `Arena` class, I had an extreme amount of logging statements that were very similar to eachother. I managed to cut those down by creating new functions that reduced the amount of code needed to be typed. Additionally, the patterns I implemented help to reduce code by their very nature. If I didn't use the Bridge Pattern, I would have had to create 27 separate classes - one for each possible combination of components.
+
+Finally, I am glad that I chose to implement two new patterns instead of just one. It took me a while to wrap my head around how they worked, but I quickly saw how well they could interact with eachother and I definitely think I will be using them in the future.
 
 # Project Template
 
